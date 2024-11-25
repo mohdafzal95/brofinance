@@ -1,7 +1,5 @@
 // src/components/Dashboard.jsx
-import React from 'react';
 import { Line } from 'react-chartjs-2';
-import usePage from '../hooks/usePage';
 import { Helmet } from 'react-helmet';
 
 function Dashboard() {
@@ -21,15 +19,21 @@ function Dashboard() {
         ],
     };
 
-    return (
-        <>
+    const MetaTags=()=>{
+        return (
             <Helmet>
-                <title>Dashboard</title>
-                <meta property="og:title" content="Dashboard" />
-                <meta property="og:description" content="Overview of your portfolio and market performance." />
-                <meta property="og:image" content="https://images.pexels.com/photos/29137971/pexels-photo-29137971/free-photo-of-scenic-autumn-pathway-lined-with-vibrant-leaves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                <meta property="og:url" content={window.location.href} />
-            </Helmet>
+            <title>Dashboard</title>
+            <meta property="og:title" content="Dashboard" />
+            <meta property="og:description" content="Overview of your portfolio and market performance." />
+            <meta property="og:image" content="https://images.pexels.com/photos/29137971/pexels-photo-29137971/free-photo-of-scenic-autumn-pathway-lined-with-vibrant-leaves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <meta property="og:url" content={window.location.href} />
+        </Helmet> 
+        )
+    }
+
+    return (
+        <> 
+          <MetaTags/>
             <div className="p-4">
                 <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">

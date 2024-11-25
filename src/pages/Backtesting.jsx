@@ -12,6 +12,7 @@ import {
     Legend,
 } from 'chart.js';
 import usePage from '../hooks/usePage';
+import { Helmet } from 'react-helmet';
 
 // Register the components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -24,6 +25,18 @@ const Backtesting = () => {
     const [profitTarget, setProfitTarget] = useState('');
     const [results, setResults] = useState(null);
 
+    const MetaTags=()=>{
+        return (
+            <Helmet>
+                <title>Backtesting</title>
+                <meta property="og:title" content="Backtesting" />
+                <meta property="og:description" content="Backtesting description" />
+                <meta property="og:image" content="https://images.pexels.com/photos/29137971/pexels-photo-29137971/free-photo-of-scenic-autumn-pathway-lined-with-vibrant-leaves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                <meta property="og:url" content={window.location.href} />
+            </Helmet>
+        )
+    }
+
     const handleBacktest = () => {
         // Simulate backtest results
         const simulatedResults = {
@@ -35,17 +48,10 @@ const Backtesting = () => {
         setResults(simulatedResults);
     };
 
-    usePage({
-        title: "Backtesting",
-        description: "Backtesting description",
-        ogTitle: "Backtesting",
-        ogDescription: "Backtesting description",
-        ogUrl: window.location.href,
-        ogImage: "https://images.pexels.com/photos/29137971/pexels-photo-29137971/free-photo-of-scenic-autumn-pathway-lined-with-vibrant-leaves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    });
 
     return (
         <div className="p-4">
+            <MetaTags/>
             <h1 className="text-2xl font-bold mb-4">Backtesting</h1>
             <div className="mb-4">
                 <label className="block mb-1">Select Algorithm:</label>
