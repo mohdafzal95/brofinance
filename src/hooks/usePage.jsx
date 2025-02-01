@@ -25,6 +25,9 @@ export const usePage = ({
     };
   }, [title, description, ogTitle, ogDescription, ogImage, ogUrl]);
 
+
+  console.log("object");
+
   const setMetaTag = (attribute, key, content) => {
     if (content) {
       let element = document.querySelector(`meta[${attribute}="${key}"]`);
